@@ -75,7 +75,7 @@ def make_pics(pictures, plans, n_frames, rank, ntasks):
         G = plans[image_index]
         points = get_points_at_t(xs, xt, G, t)
         display_scatter(points, show=False)
-        filename = f"pic/{image_index * n_frames + time_index}.png"
+        filename = f"{conf.temporary_folder_name}/{image_index * n_frames + time_index}.png"
         plt.savefig(filename, transparent=False, bbox_inches='tight')
         plt.clf()
 
