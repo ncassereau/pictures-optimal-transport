@@ -88,7 +88,7 @@ def make_pics(pictures, plans, n_frames, rank, ntasks):
             print(f"Applying transport plan between images {i1} and {i2}")
         for time_index in range(n_frames):
             # Distribution on ntasks
-            if (image_index * n_frames + time_index - rank) % ntasks == 0:
+            if (image_index * n_frames + time_index) % ntasks == rank:
                 make_frame(image_index, time_index)
 
     plt.close()
