@@ -1,7 +1,7 @@
 import numpy as np
 from PIL import Image
-import sys
-sys.path.append("../../pnria/pot/POT")
+#import sys
+#sys.path.append("../../pnria/pot/POT")
 import ot
 import pickle
 from scipy import sparse
