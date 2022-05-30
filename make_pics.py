@@ -49,6 +49,8 @@ def get_points_at_t(xs, xt, G, t):
 
 def make_time_dimension(n_frames):
     t = np.linspace(0, 1, n_frames)
+    if conf.easing_function is not None:
+        t = conf.easing_function(t)
     return t
 
 
