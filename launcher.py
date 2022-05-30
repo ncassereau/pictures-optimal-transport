@@ -23,7 +23,7 @@ def make_command(file, command, **kwargs):
     file.write("cd ${SLURM_SUBMIT_DIR}\n")
 
     # Load the correct module
-    file.write(f"module purge\nmodule load {conf.module_to_load}\n")
+    file.write(conf.module_loading)
 
     # Display the (start) date
     file.write('echo "JOB $SLURM_JOBID START TIME: $(date)"\n')

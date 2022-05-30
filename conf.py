@@ -9,7 +9,7 @@ slurm_kwargs = dict(
     time="02:00:00",
     qos="qos_cpu-dev",
 )
-module_to_load = "pytorch-gpu/py3/1.10.0"
+module_loading = "module purge\nmodule load pytorch-gpu/py3/1.10.0\n"
 ntasks = 40
 scatter_nodes = 1
 scatter_cpus_per_task = 1

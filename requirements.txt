@@ -1,5 +1,5 @@
 numpy
-ot
+POT
 scipy
 matplotlib
 pickle
