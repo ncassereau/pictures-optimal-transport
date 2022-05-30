@@ -1,7 +1,5 @@
 import numpy as np
 from PIL import Image
-#import sys
-#sys.path.append("../../pnria/pot/POT")
 import ot
 import pickle
 from scipy import sparse
@@ -69,7 +67,7 @@ def compute_plan(xs, xt, n):
     a = np.ones((n,))
     b = np.ones((n,))
     M = ot.dist(xs, xt) # Cost to turn any source pixel into any target pixel
-    print("Number of iterations: ", conf.numItermax)
+    print("Max number of iterations: ", conf.numItermax)
     G = ot.emd(a, b, M, numThreads=conf.numThreads, numItermax=conf.numItermax)
 
     # The plan is, in this case, a permutation so it is a very sparse matrix.

@@ -26,7 +26,7 @@ def make_command(file, command, **kwargs):
     file.write(f"module purge\nmodule load {conf.module_to_load}\n")
 
     # Display the (start) date
-    file.write('echo "STEP START TIME: $(date)"\n')
+    file.write('echo "JOB $SLURM_JOBID START TIME: $(date)"\n')
 
     # Execute our command
     if isinstance(command, (list, tuple)):
@@ -34,7 +34,7 @@ def make_command(file, command, **kwargs):
     file.write("srun python3 " + command + "\n")
 
     # Display the (end) date
-    file.write('echo "STEP END TIME: $(date)"\n')
+    file.write('echo "JOB $SLURM_JOBID END TIME: $(date)"\n')
     file.write('echo "-------------------"\n')
     file.write('echo "-------------------" 1>&2;\n')
 

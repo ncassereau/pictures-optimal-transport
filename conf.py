@@ -1,4 +1,4 @@
-use_slurm = True # whether or not slurm is used for the computation
+use_slurm = False # whether or not slurm is used for the computation
 cleanup_after = False # whether or not to delete plans and scatter plots after the gif is formed
 
 slurm_kwargs = dict(
@@ -20,7 +20,7 @@ picture_list = [
 ]
 
 n_points = 40000 # Number of points drawn randomly on each picture
-size = (295, 470) # Resizing the image before using it. Set None to ignore
+size = (720, 720) # Resizing the image before using it. Set None to ignore
 display_size = (3.2, 4.8) # Size of the matplotlib figure for scatter plot
 points_size = 2000. / n_points # size of points on the scatter plot
 numItermax = 1_000_000_000 # Max iteration for plan computation

@@ -1,0 +1,9 @@
+numpy
+ot
+scipy
+matplotlib
+pickle
+glob
+imageio
+shutil
+subprocess
