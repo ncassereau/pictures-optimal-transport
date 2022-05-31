@@ -8,6 +8,7 @@ slurm_kwargs = dict(
     account="xyz@cpu",
     time="02:00:00",
     qos="qos_cpu-dev",
+    kill_on_invalid_dep="yes",
 )
 module_loading = "module purge\nmodule load pytorch-gpu/py3/1.10.0\n"
 ntasks = 40
