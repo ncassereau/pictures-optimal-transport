@@ -41,9 +41,9 @@ or the ability to handle more than 2 pictures to create a cycle). As such, the
 script version is recommended.
 
 
-## An example
+## Examples
 
-Here is a few examples computed with 40k points.
+Here are a few examples computed with 40k points.
 
 <p align="middle">
 <td><img src="Examples/Monge-Kanto/Monge.jpg" title="Gaspard Monge" alt="picture of Monge" width="200"/></td>
@@ -57,4 +57,13 @@ Here is a few examples computed with 40k points.
 <td><img src="Examples/Hatim-Chad/hatim.png" title="Average transformer enjoyer" alt="picture of Wojak" width="200"/></td>
 <td><img src="Examples/Hatim-Chad/colored_chad.png" title="Gigachad" alt="picture of Chad" width="200"/></td>
 <td><img src="Examples/Hatim-Chad/hatim-chad.gif" alt="Wojak-Chad transport" width="200"/></td>
+</p>
+
+<hr>
+
+<p align="middle">
+<td><img src="Examples/CharlieTheUnicorn/charlie.png" title="Charlie" alt="picture of Charlie the Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/pink_unicorn.png" title="Pink" alt="picture of Pink Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/blue_unicorn.png" title="Blue" alt="picture of Blue Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/unicorns.gif" alt="Unicorns transport" width="200"/></td>
 </p>

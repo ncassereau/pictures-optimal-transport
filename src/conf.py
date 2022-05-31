@@ -1,11 +1,11 @@
-use_slurm = True # whether or not slurm is used for the computation
+use_slurm = False # whether or not slurm is used for the computation
 cleanup_after = False # whether or not to delete plans and scatter plots after the gif is formed
 
 slurm_kwargs = dict(
     job_name="pictures-transportation",
     output="slurm.out",
     error="slurm.err",
-    account="sos@cpu",
+    account="xyz@cpu",
     time="02:00:00",
     qos="qos_cpu-dev",
     kill_on_invalid_dep="yes",
@@ -16,13 +16,14 @@ scatter_nodes = 1
 scatter_cpus_per_task = 1
 
 picture_list = [
-    "wojak.jpg",
-    "colored_chad.png",
+    "picture1.png",
+    "picture2.png",
+    "picture3.png"
 ]
 
 n_points = 40000 # Number of points drawn randomly on each picture
-size = (650, 900) # Resizing the image before using it. Set None to ignore
-display_size = (3.2, 4.8) # Size of the matplotlib figure for scatter plot
+size = (200, 200) # Resizing the image before using it. Set None to ignore
+display_size = (4.8, 4.8) # Size of the matplotlib figure for scatter plot
 points_size = 2000. / n_points # size of points on the scatter plot
 numItermax = 1_000_000_000 # Max iteration for plan computation
 numThreads = 24 # EMD distribution
