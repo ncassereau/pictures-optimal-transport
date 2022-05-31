@@ -45,16 +45,16 @@ script version is recommended.
 
 Here is a few examples computed with 40k points.
 
-<table align="center" border="0">
-<tr>
-<td><img src="Examples/Monge-Kanto/Monge.jpg" alt="picture of Monge" width="200"/></td>
-<td><img src="Examples/Monge-Kanto/Kantorovich.jpg" alt="picture of Kantorovich" width="200"/></td>
-<td><img src="Examples/Monge-Kanto/monge-kantorovich.gif" alt="Monge-Kantorovich transport" width="200"/></td>
-</tr>
+<p align="middle">
+<td><img src="Examples/Monge-Kanto/Monge.jpg" title="Gaspard Monge" alt="picture of Monge" width="200"/></td>
+<td><img src="Examples/Monge-Kanto/Kantorovich.jpg" title="Leonid Kantorovich" alt="picture of Kantorovich" width="200"/></td>
+<td><img src="Examples/Monge-Kanto/monge-kantorovich.gif" title="Gods of optimal transport" alt="Monge-Kantorovich transport" width="200"/></td>
+</p>
 
-<tr>
-<td><img src="Examples/Wojak-Chad/wojak.jpg" alt="picture of Wojak" width="200"/></td>
-<td><img src="Examples/Wojak-Chad/colored_chad.png" alt="picture of Chad" width="200"/></td>
-<td><img src="Examples/Wojak-Chad/wojak-chad.gif" alt="Wojak-Chad transport" width="200"/></td>
-</tr>
-</table>
+<hr>
+
+<p align="middle">
+<td><img src="Examples/Hatim-Chad/hatim.png" title="My colleague Hatim Bourfoune" alt="picture of Wojak" width="200"/></td>
+<td><img src="Examples/Hatim-Chad/colored_chad.png" title="Gigachad" alt="picture of Chad" width="200"/></td>
+<td><img src="Examples/Hatim-Chad/hatim-chad.gif" title="Average transformer enjoyer" alt="Wojak-Chad transport" width="200"/></td>
+</p>
