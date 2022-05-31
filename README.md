@@ -3,19 +3,18 @@
 
 ## What is this repository ?
 
-
 This repository uses optimal transport to compute the transformation between a
-picture and another. It uses the same principle as this
-repository (https://github.com/nbonneel/network_simplex) except
-it is based on POT and this repository contains the full code to generate
-such a video.
+picture and another. It is based on
+[this code](https://github.com/nbonneel/network_simplex)
+through the usage of [POT](https://github.com/PythonOT/POT).
+However, this repository contains the full code to generate such a video.
 
 
 ## How to use it ?
 
 In order to use to it, you should change the configuration to your liking by
-modifying conf.py. It includes parameters for the transportation as well as
-the computation itself (SLURM parameters if you're using such a scheduler).
+modifying `conf.py`. It includes parameters for the transportation as well as
+the computation itself (SLURM parameters if you're using such a job scheduler).
 
 ### With SLURM
 
