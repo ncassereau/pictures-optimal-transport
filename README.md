@@ -19,7 +19,8 @@ the computation itself (SLURM parameters if you're using such a scheduler).
 
 ### With SLURM
 
-If SLURM is available, you can launch the computation by executing
+If SLURM is available, you can launch the computation by executing the following
+in the `src/` folder.
 ```
 python3 launcher.py
 ```
@@ -27,7 +28,7 @@ This script will create a submission file for SLURM.
 
 ### Without SLURM
 
-You can just launch the multiple scripts in the following order:
+You can just launch the multiple scripts in the following order (inside the `src/` folder):
 ```
 python3 transport.py
 python3 make_pics.py
