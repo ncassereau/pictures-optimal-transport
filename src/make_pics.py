@@ -11,7 +11,7 @@ import scipy.sparse as sparse
 
 
 def load_data():
-    with open("data", "rb") as file:
+    with open(conf.transport_file, "rb") as file:
         D = pickle.load(file)
     pictures = D["images"]
     plans = [sparse.csr_matrix(d) for d in D["plans"]]

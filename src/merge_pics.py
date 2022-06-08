@@ -21,10 +21,10 @@ def make_gif(filename, fps):
 
 def cleanup():
     try:
-        os.remove("data")
+        os.remove(conf.transport_file)
     except FileNotFoundError:
         pass
-    shutil.rmtree("pic")
+    shutil.rmtree(conf.temporary_folder_name)
 
 
 def main():

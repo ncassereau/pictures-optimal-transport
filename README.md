@@ -37,7 +37,18 @@ python3 merge_pics.py
 A notebook is also available, although
 it does not contain every feature of the script version (such as easing functions
 or the ability to handle more than 2 pictures to create a cycle). As such, the
-script version is recommended.
+script version is recommended. The notebook can be very handy to try several
+parameters to get high quality pictures, such as points size or the contrast
+level.
+
+After the computation, it is strongly advised to compress it, for instance with
+gifsicle. Such software is not available on Jean Zay, that is why it was not
+included in the code. You could for instance run the following:
+```
+gifsicle -O3 --colors 16 --lossy=200 mygif.gif > optimized.gif
+```
+
+In order to have a reasonable file size, you probably should also limit to 30 fps.
 
 
 ## Examples
@@ -53,16 +64,16 @@ Here are a few examples computed with 40k points.
 <hr>
 
 <p align="middle">
-<td><img src="Examples/Hatim-Chad/hatim.png" title="Average transformer enjoyer" alt="picture of Wojak" width="200"/></td>
-<td><img src="Examples/Hatim-Chad/colored_chad.png" title="Gigachad" alt="picture of Chad" width="200"/></td>
-<td><img src="Examples/Hatim-Chad/hatim-chad.gif" alt="Wojak-Chad transport" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/charlie.png" title="Charlie" alt="picture of Charlie the Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/pink_unicorn.png" title="Pink" alt="picture of Pink Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/blue_unicorn.png" title="Blue" alt="picture of Blue Unicorn" width="200"/></td>
+<td><img src="Examples/CharlieTheUnicorn/unicorns.gif" alt="Unicorns transport" width="200"/></td>
 </p>
 
 <hr>
 
 <p align="middle">
-<td><img src="Examples/CharlieTheUnicorn/charlie.png" title="Charlie" alt="picture of Charlie the Unicorn" width="200"/></td>
-<td><img src="Examples/CharlieTheUnicorn/pink_unicorn.png" title="Pink" alt="picture of Pink Unicorn" width="200"/></td>
-<td><img src="Examples/CharlieTheUnicorn/blue_unicorn.png" title="Blue" alt="picture of Blue Unicorn" width="200"/></td>
-<td><img src="Examples/CharlieTheUnicorn/unicorns.gif" alt="Unicorns transport" width="200"/></td>
+<td><img src="Examples/Hatim-Chad/hatim.png" title="Average transformer enjoyer" alt="picture of Wojak" width="200"/></td>
+<td><img src="Examples/Hatim-Chad/colored_chad.png" title="Gigachad" alt="picture of Chad" width="200"/></td>
+<td><img src="Examples/Hatim-Chad/hatim-chad.gif" alt="Wojak-Chad transport" width="200"/></td>
 </p>

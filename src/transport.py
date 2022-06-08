@@ -16,7 +16,14 @@ def convert_to_black_probabilities(im):
     # 0 is black, 255 is white ---> 0 is white, 255 is black
     blackness = 255 - flattened_array
 
-    return blackness / blackness.sum()
+    # Further increase contrast and improve points cloud image quality
+    # by changing the probability distribution
+    blackness = blackness ** 3.25
+
+    # Normalization
+    blackness = blackness / blackness.sum()
+
+    return blackness
 
 
 def convert_pic_to_scatter_plot(black_probabilities, initial_shape, n_points=10000):
@@ -42,18 +49,47 @@ def convert_pic_to_scatter_plot(black_probabilities, initial_shape, n_points=100
     return p1, p2
 
 
-def im2dots(pil_image, n_points, size):
-    # Convert a PIL image to a dotted picture
+def change_contrast(img, level):
+    # Change the contrast of a greyscale PIL image
+    # Level 0 does not change anything.
+    # Recommended to try between 50 and 150
 
-    # Resize, make the picture grey and make it an array
-    if size is not None:
-        pil_image = pil_image.resize(size)
+    factor = (259 * (level + 255)) / (255 * (259 - level))
+
+    def contrast(c):
+        return 128 + factor * (c - 128)
+
+    return img.point(contrast)
+
+
+def picture_treatment(filename):
+    # Treats a PIL picture so that it is usable for our little project
+
+    # Open picture
+    original_img = Image.open(filename).convert("RGBA")
+
+    # Convert transparent background to white
+    pil_image = Image.new("RGBA", original_img.size, "WHITE")
+    pil_image.paste(original_img, (0, 0), original_img)
+
+    # Convert to greyscale
     pil_image = pil_image.convert(mode="L")
-    im = np.array(pil_image)
 
-    # Transparent background is black after previous conversion
-    # So make it white so that it has a zero probability to be selected
-    im[im == 0.] = 255
+    # Resize the picture
+    if conf.size is not None:
+        pil_image = pil_image.resize(conf.size)
+
+    # Change contrast
+    pil_image = change_contrast(pil_image, conf.contrast_level)
+
+    return np.array(pil_image)
+
+
+def im2dots(filename, n_points):
+    # Make a points cloud from an image's filename
+
+    # Load the picture and make it a greyscale array
+    im = picture_treatment(filename)
 
     # Convert to a dotted picture
     probabilities = convert_to_black_probabilities(im)
@@ -64,22 +100,24 @@ def im2dots(pil_image, n_points, size):
 
 def compute_plan(xs, xt, n):
     # Compute the plan between the source and the target
-    a = np.ones((n,))
-    b = np.ones((n,))
+    a = np.ones((n,)) / n
+    b = np.ones((n,)) / n
     M = ot.dist(xs, xt) # Cost to turn any source pixel into any target pixel
     print("Max number of iterations: ", conf.numItermax)
+
     G = ot.emd(a, b, M, numThreads=conf.numThreads, numItermax=conf.numItermax)
 
     # The plan is, in this case, a permutation so it is a very sparse matrix.
     # A lot of memory can be saved by actually making it sparse.
-    G = sparse.csr_matrix(G, dtype=np.uint8)
+    G = sparse.csr_matrix(G) * n
 
     print("Plan computed!")
+    print(G.__repr__())
     return G
 
 
 def save_input_data(dotted_pictures, plans):
-    with open("data", "wb") as file:
+    with open(conf.transport_file, "wb") as file:
         print("Saving data...")
         pickle.dump({
             "images": dotted_pictures,
@@ -98,13 +136,11 @@ def main():
     plans = [] # Will store any transport plan between a picture and the next one in the cycle
 
     # First picture
-    image = Image.open(conf.picture_list[0])
-    xs = im2dots(image, conf.n_points, conf.size)
+    xs = im2dots(conf.picture_list[0], conf.n_points)
     dotted_pictures.append(xs)
 
     for i in range(1, len(conf.picture_list)):
-        image = Image.open(conf.picture_list[i])
-        xt = im2dots(image, conf.n_points, conf.size)
+        xt = im2dots(conf.picture_list[i], conf.n_points)
         dotted_pictures.append(xt)
 
         print(f"Computing plan {i}")
